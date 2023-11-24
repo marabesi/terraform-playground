@@ -16,6 +16,7 @@ jobs:
           name: terraform
           command: |
             cd aws-infrastructure
+            terraform init
             terraform apply -auto-approve
       - persist_to_workspace:
           root: .
