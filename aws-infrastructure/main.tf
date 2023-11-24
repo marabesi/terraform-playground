@@ -1,9 +1,16 @@
 terraform {
- required_providers {
-   aws = {
-     version = "~> 3.53.0"
-   }
- }
+  backend "remote" {
+    organization = "maraba"
+
+    workspaces {
+      name = "terraform-playground"
+    }
+  }
+  required_providers {
+    aws = {
+      version = "~> 3.53.0"
+    }
+  }
 }
 
 provider "aws" {
