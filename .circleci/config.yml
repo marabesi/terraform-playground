@@ -14,7 +14,7 @@ jobs:
       - run:
           name: terraform
           command: |
-            terraform apply -auto-approve tfapply
+            terraform apply -auto-approve aws-infrastructure
       - persist_to_workspace:
           root: aws-infrastructure
           paths:
