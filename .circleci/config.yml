@@ -10,13 +10,14 @@ jobs:
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
     steps:
       - attach_workspace:
-          at: aws-infrastructure
+          at: .
       - run:
           name: terraform
           command: |
-            terraform apply -auto-approve aws-infrastructure
+            cd aws-infrastructure
+            terraform apply -auto-approve
       - persist_to_workspace:
-          root: aws-infrastructure
+          root: .
           paths:
             - .
 
