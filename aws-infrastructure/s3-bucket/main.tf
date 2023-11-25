@@ -6,3 +6,9 @@ resource "aws_s3_bucket" "webapp" {
     Environment = each.value
   }
 }
+
+resource "aws_s3_bucket_acl" "webapp_public_read" {
+  for_each = var.environments
+  bucket = aws_s3_bucket.webapp[each.value].id
+  acl = "public-read"
+}
