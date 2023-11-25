@@ -22,3 +22,10 @@ provider "aws" {
 #  environments = var.environments
 #  project_name = var.project_name
 #}
+
+module "containers"  {
+  source = "./ecs"
+
+  environments = var.environments
+  project_name = var.project_name
+}
