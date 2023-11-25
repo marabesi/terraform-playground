@@ -17,8 +17,8 @@ provider "aws" {
   region = var.aws_region
 }
 
-module "frontend" {
-  source = "./s3-bucket"
-  environments = var.environments
-  project_name = var.project_name
-}
+#module "frontend" {
+#  source = "./s3-bucket"
+#  environments = var.environments
+#  project_name = var.project_name
+#}
