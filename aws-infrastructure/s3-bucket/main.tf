@@ -45,3 +45,11 @@ resource "aws_s3_bucket_website_configuration" "webapp_configuration" {
     suffix = "index.html"
   }
 }
+
+resource "aws_s3_object" "webapp_static_file" {
+  for_each = var.environments
+  bucket = aws_s3_bucket.webapp[each.value].id
+
+  key    = "index.html"
+  source = "s3-bucket/index.html"
+}
