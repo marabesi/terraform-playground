@@ -17,15 +17,15 @@ provider "aws" {
   region = var.aws_region
 }
 
-module "frontend" {
-  source = "./s3"
-  environments = var.environments
-  project_name = var.project_name
-}
+#module "frontend" {
+#  source = "./s3"
+#  environments = var.environments
+#  project_name = var.project_name
+#}
 
-module "containers"  {
-  source = "./ecs"
-
-  environments = var.environments
-  project_name = var.project_name
-}
+#module "containers"  {
+#  source = "./ecs"
+#
+#  environments = var.environments
+#  project_name = var.project_name
+#}
