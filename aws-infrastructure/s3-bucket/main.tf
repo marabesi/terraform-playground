@@ -12,3 +12,12 @@ resource "aws_s3_bucket_acl" "webapp_public_read" {
   bucket = aws_s3_bucket.webapp[each.value].id
   acl = "public-read"
 }
+
+resource "aws_s3_bucket_website_configuration" "webapp_configuration" {
+  for_each = var.environments
+  bucket = aws_s3_bucket.webapp[each.value].id
+
+  index_document {
+    suffix = "index.html"
+  }
+}
