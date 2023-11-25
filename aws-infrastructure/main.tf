@@ -18,7 +18,7 @@ provider "aws" {
 }
 
 module "frontend" {
-  source = "./s3-bucket"
+  source = "./s3"
   environments = var.environments
   project_name = var.project_name
 }
