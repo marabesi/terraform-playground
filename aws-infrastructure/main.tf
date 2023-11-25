@@ -14,5 +14,15 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-2"
+  region = var.aws_region
+}
+
+resource "aws_s3_bucket" "webapp" {
+  for_each = var.environments
+  bucket = "${each.value}-frontend-app-playground"
+
+  tags = {
+    Name        = var.project_name
+    Environment = each.value
+  }
 }
