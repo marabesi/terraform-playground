@@ -51,5 +51,31 @@ resource "aws_s3_object" "webapp_static_file" {
   bucket = aws_s3_bucket.webapp[each.value].id
 
   key    = "index.html"
-  source = "s3-bucket/index.html"
+  content = "<h1>${each.value} hello terraform-playground<h1>"
+  content_type = "text/html"
+}
+
+resource "aws_s3_bucket_policy" "s3_bucket_get_object" {
+  depends_on = [
+    aws_s3_bucket_acl.webapp_public_read
+  ]
+
+  for_each = var.environments
+  bucket = aws_s3_bucket.webapp[each.value].id
+
+  policy = jsonencode({
+    Version   = "2012-10-17"
+    Statement = [
+      {
+        Sid       = "PublicReadGetObject"
+        Effect    = "Allow"
+        Principal = "*"
+        Action    = "s3:GetObject"
+        Resource  = [
+          aws_s3_bucket.webapp[each.value].arn,
+          "${aws_s3_bucket.webapp[each.value].arn}/*",
+        ]
+      },
+    ]
+  })
 }
