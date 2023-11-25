@@ -5,7 +5,7 @@ variable "aws_region" {
 
 variable "environments" {
   type = set(string)
-  default = ["dev", "prod"]
+  default = ["dev"]
 }
 
 variable "project_name" {
