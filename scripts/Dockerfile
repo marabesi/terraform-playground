@@ -1,4 +1,4 @@
-FROM node:16.10.0
+FROM node:20-bullseye-slim
 WORKDIR /terraform-playground
 RUN npm install -g http-server
 RUN echo "<p>hello</p>" >> index.html
