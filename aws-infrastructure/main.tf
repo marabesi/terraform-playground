@@ -24,16 +24,16 @@ provider "aws" {
 #}
 
 #module "containers"  {
-#  source = "./ecs"
+#  source = "./ecr"
 #
 #  environments = var.environments
 #  project_name = var.project_name
 #}
 
-module "database" {
-  source = "./rds"
-  environments = var.environments
-  project_name = var.project_name
-  rds_root_username = var.rds_root_username
-  rds_root_password = var.rds_root_password
-}
+#module "database" {
+#  source = "./rds"
+#  environments = var.environments
+#  project_name = var.project_name
+#  rds_root_username = var.rds_root_username
+#  rds_root_password = var.rds_root_password
+#}
