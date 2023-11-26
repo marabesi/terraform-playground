@@ -22,14 +22,20 @@ provider "aws" {
 #  environments = var.environments
 #  project_name = var.project_name
 #}
-
+#
 #module "containers"  {
 #  source = "./ecr"
 #
 #  environments = var.environments
 #  project_name = var.project_name
 #}
-
+#
+#module "backend" {
+#  for_each = var.environments
+#  source = "./apprunner"
+#  image_identifier = module.containers.container_registry_url
+#}
+#
 #module "database" {
 #  source = "./rds"
 #  environments = var.environments
