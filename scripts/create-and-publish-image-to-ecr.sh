@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ECS_REPOSITORY='814206347167.dkr.ecr.us-east-2.amazonaws.com'
-IMAGE='dev-terraform-playground-registry:latest'
+# refs https://gist.github.com/judy2k/7656bfe3b322d669ef75364a46327836
+source .env
 
 docker build --no-cache -t $IMAGE .
 
