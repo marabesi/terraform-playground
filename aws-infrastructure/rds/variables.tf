@@ -1,16 +1,11 @@
-variable "aws_region" {
-  type = string
-  default = "us-east-2"
-}
-
 variable "environments" {
   type = set(string)
-  default = ["dev"]
+  default = []
 }
 
 variable "project_name" {
   type = string
-  default = "terraform-playground"
+  default = ""
 }
 
 variable "rds_root_username" {
