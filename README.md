@@ -25,3 +25,5 @@ In here you will find the following:
 - Networking
 - Security
 - Backup
+- Upgrade code to use terraform modules
+  - For example [s3](https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/latest)
