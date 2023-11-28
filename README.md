@@ -18,3 +18,10 @@ In here you will find the following:
 
 - Terraform CLI running
 - Knowledge of bash script to define environment variables and run scripts
+
+## Work that still needs to be done
+
+- VPC
+- Networking
+- Security
+- Backup
