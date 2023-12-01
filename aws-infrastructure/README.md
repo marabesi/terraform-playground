@@ -37,3 +37,11 @@ to execute the infrastructure, follow those steps:
 If you are wondering why this is required, it is due the wiring that happens between AWS and terraform and terraform and
 what we want the infrastructure to look like. For example, the database requires a username and password and AWS requires
 a key and a secret to authenticate the user.
+
+## ECR
+
+It requires a [special authentication](https://stackoverflow.com/a/35061033/2258921), for such follow the steps
+(replace AWS_ACCOUNT_ID and AWS_REGION with the correct information before executing the command):
+
+aws ecr get-login-password | docker login --username AWS --password-stdin AWS_ACCOUNT_ID.dkr.ecr.AWS_REGION.amazonaws.com
+
