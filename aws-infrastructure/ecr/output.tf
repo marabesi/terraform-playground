@@ -1,5 +1,5 @@
 output "container_registry_url" {
-  value = [
-    for environment in aws_ecr_repository.container_registry: environment.repository_url
-  ]
+  value = tomap({
+    for k, g in aws_ecr_repository.container_registry : k => g.repository_url
+  })
 }

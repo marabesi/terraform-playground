@@ -1,5 +1,5 @@
 resource "aws_apprunner_service" "backend_api" {
-  service_name = "example"
+  service_name = "${var.environment}-backend-api"
 
   source_configuration {
     image_repository {
