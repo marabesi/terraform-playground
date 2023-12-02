@@ -46,3 +46,7 @@ It requires a [special authentication](https://stackoverflow.com/a/35061033/2258
 ```
 aws ecr get-login-password | docker login --username AWS --password-stdin AWS_ACCOUNT_ID.dkr.ecr.AWS_REGION.amazonaws.com
 ```
+
+### Errors destroying ECR
+
+- Executing terraform destroy might lead to the following error: "Error: ECR Repository (dev-terraform-playground-registry) not empty, consider using force_delete", whenever this happens, manually removal of images is required from the registry, one by one via console.
