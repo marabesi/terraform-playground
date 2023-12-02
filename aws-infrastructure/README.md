@@ -43,5 +43,6 @@ a key and a secret to authenticate the user.
 It requires a [special authentication](https://stackoverflow.com/a/35061033/2258921), for such follow the steps
 (replace AWS_ACCOUNT_ID and AWS_REGION with the correct information before executing the command):
 
+```
 aws ecr get-login-password | docker login --username AWS --password-stdin AWS_ACCOUNT_ID.dkr.ecr.AWS_REGION.amazonaws.com
-
+```
