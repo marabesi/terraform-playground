@@ -34,9 +34,9 @@ provider "aws" {
 #  depends_on = [module.containers]
 #
 #  for_each = var.environments
-#  environment="${each.value}-backenda-api"
+#  environment="${each.value}-backend-api"
 #  image_identifier = "${module.containers.container_registry_url[each.value]}:latest"
-#  source = "./apprunner"
+#  source = "./app-runner"
 #}
 #
 #module "database" {
