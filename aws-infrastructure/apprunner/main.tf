@@ -34,6 +34,16 @@ resource "aws_apprunner_service" "backend_api" {
 
   service_name = "${var.environment}-backend-api"
 
+  health_check_configuration {
+    protocol = "HTTP"
+    path = "/"
+  }
+
+  instance_configuration {
+    memory = "512"
+    cpu = "256"
+  }
+
   source_configuration {
     authentication_configuration {
       access_role_arn = aws_iam_role.apprunner_role.arn

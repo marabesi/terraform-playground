@@ -22,23 +22,23 @@ provider "aws" {
 #  environments = var.environments
 #  project_name = var.project_name
 #}
-#
-#module "containers"  {
-#  source = "./ecr"
-#
-#  environments = var.environments
-#  project_name = var.project_name
-#}
 
-#module "backend" {
-#  depends_on = [module.containers]
-#
-#  for_each = var.environments
-#  environment="${each.value}-backenda-api"
-#  image_identifier = "${module.containers.container_registry_url[each.value]}/terraform-playground:latest"
-#  source = "./apprunner"
-#}
-#
+module "containers"  {
+  source = "./ecr"
+
+  environments = var.environments
+  project_name = var.project_name
+}
+
+module "backend" {
+  depends_on = [module.containers]
+
+  for_each = var.environments
+  environment="${each.value}-backenda-api"
+  image_identifier = "${module.containers.container_registry_url[each.value]}:latest"
+  source = "./apprunner"
+}
+
 #module "database" {
 #  source = "./rds"
 #  environments = var.environments
